@@ -1,4 +1,4 @@
-Website Address: [Live Example](https://github.com/Mexxy-lab/Emeka_Portfolio.git)
+Website Address: [Live Example](https://Mexxy-lab.github.io/Emeka_Portfolio/)
 
 - Devops Engineer' Portfolio Template
 
