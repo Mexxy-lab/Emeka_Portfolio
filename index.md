@@ -6,7 +6,7 @@ Here are some of my best Devops Projects. I have explored various devops tools f
 
 [End to end full automation deployment of a Javascript app (Amazon clone web app)](https://github.com/suvo-gh/Bike-Rental-Demand/blob/main/Bike_Rental_Demand.ipynb)
 
-<img src="project-architecture.png?raw=true"/>
+<img src="images/project-architecture.png?raw=true"/>
 
 **Tools used:** Javascript, Jenkins, ArgoCD, Gitops, Docker, Containerization, Github, AWS. Digital Ocean, Terraform. 
 
