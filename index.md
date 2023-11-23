@@ -1,24 +1,28 @@
-# Data Science Portfolio
+# Dev-Ops Portfolio
 
 Here are some of my best Devops Projects. I have explored various devops tools for different deployments. Feel free to contact me to learn more about my experience working with these tools.
 
 ***
 
-[Examining the effect of environmental factors and weather on demand of Bike rentals](https://github.com/suvo-gh/Bike-Rental-Demand/blob/main/Bike_Rental_Demand.ipynb)
+[End to end full automation deployment of a Javascript app (Amazon clone web app)](https://github.com/suvo-gh/Bike-Rental-Demand/blob/main/Bike_Rental_Demand.ipynb)
 
-<img src="images/seoul-bikes.jpeg?raw=true"/>
+<img src="project-architecture.png?raw=true"/>
 
-**Skills used:** Python, Pandas, SKlearn, Matplotlib
+**Tools used:** Javascript, Jenkins, ArgoCD, Gitops, Docker, Containerization, Github, AWS. Digital Ocean, Terraform. 
 
-**Project Objective:** Predicting Bike rental demand on basis of weather and seasonal factors in advance to take appropiate measures which finally will result in bike utilization.
+**Project Objective / Keys steps:** To automate the deployment of a sample amazon website application written in Javascript using GitOps-ArgoCD and CD tool jenkins to Digital Ocean kubernetes cluster.
 
-**Quantifiable result:** We could predict the Bike rental demand resulting in [**94%** accuracy](https://github.com/suvo-gh/Bike-Rental-Demand/blob/main/Bike_Rental_Demand.ipynb).
+- Provisioned Kubernetes cluster using Digital Ocean as cloud provider. Deployed ArgoCD to the cluster.(You can do this via CLI / UI / Terraform).
+- Created Docker file & jenkins pipeline job to automate the build process. The pipeline triggers a second job which updates the repository for ArgoCD deployment.
+- Pushed imaged to docker hub using the jenkins pipeline job. Deployed the application using Argocd.
+- Added Ingress (Ingress.yml) rules using nginx to the deployment namespace to control traffic from outside world using Ingress controller.
+- Added Cert manager/jet-stack (issuer.yml) to the deployment to make the website look secured respectively. Cluster issuer type was used.
+- Added monitoring tools Prometheus and Grafana via helm charts for monitoring purposes.
 
-- Used Random Forest Regressor to predict the number of bikes rented in the city of Seoul
-- The data had quite a few categorical variables which were encoded for use in the model
-- Encoded categorical variables to numeric using Sklearn due to the presence of many string columns
-- Cross Validation for validating the training data and model fit.
-- Fit a Random Forest Regressor with high prediction accuracy through iteration
+**Output result:** Webapp deployed and running with domain name amazon.pumej.com [**Build time 184** minutes](https://github.com/suvo-gh/Bike-Rental-Demand/blob/main/Bike_Rental_Demand.ipynb).
+
+<img src="images/amazon-app.png?raw=true"/>
+
 
 ***
 
