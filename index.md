@@ -19,10 +19,17 @@ Here are some of my best Devops Projects. I have explored various devops tools f
 - Added Cert manager/jet-stack (issuer.yml) to the deployment to make the website look secured respectively. Cluster issuer type was used.
 - Added monitoring tools Prometheus and Grafana via helm charts for monitoring purposes.
 
-**Output result:** Webapp deployed and running with domain name amazon.pumej.com [**Build time 184** minutes](https://github.com/suvo-gh/Bike-Rental-Demand/blob/main/Bike_Rental_Demand.ipynb).
+**Output result:** Webapp deployed and running with domain name amazon.pumej.com [**Build time 184** minutes](https://github.com/Mexxy-lab/Pumej_amazon-clone-app.git).
 
 <img src="images/amazon-app.png?raw=true"/>
 
+- Picture showing deployed pods running in ArgoCD
+
+<img src="images/Pod.png?raw=true"/>
+
+- Picture showing monitoring tool grafana
+
+<img src="images/cluster-monitoring.png?raw=true"/>
 
 ***
 
