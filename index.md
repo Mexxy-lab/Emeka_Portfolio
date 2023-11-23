@@ -4,7 +4,7 @@ Here are some of my best Devops Projects. I have explored various devops tools f
 
 ***
 
-[End to end full automation deployment of a Javascript app (Amazon clone web app)](https://github.com/suvo-gh/Bike-Rental-Demand/blob/main/Bike_Rental_Demand.ipynb)
+[End to end full automation deployment of a Javascript app (Amazon clone web app)](https://github.com/Mexxy-lab/Pumej_amazon-clone-app.git)
 
 <img src="images/project-architecture.png?raw=true"/>
 
