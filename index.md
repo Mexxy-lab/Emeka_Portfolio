@@ -19,7 +19,7 @@ Here are some of my best Devops Projects. I have explored various devops tools f
 - Added Cert manager/jet-stack (issuer.yml) to the deployment to make the website look secured respectively. Cluster issuer type was used.
 - Added monitoring tools Prometheus and Grafana via helm charts for monitoring purposes.
 
-**Output result:** Webapp deployed and running with domain name amazon.pumej.com [**Build time 184** minutes](https://github.com/Mexxy-lab/Pumej_amazon-clone-app.git).
+**Output result:** Webapp deployed and running with domain name amazon.pumej.com [**Build time 2mins 9secs**](https://github.com/Mexxy-lab/Pumej_amazon-clone-app.git).
 
 <img src="images/amazon-app.png?raw=true"/>
 
@@ -72,31 +72,29 @@ Here are some of my best Devops Projects. I have explored various devops tools f
 
 ***
 
-[(3) End to end full automation deployment of a Javascript app (Amazon clone web app)](https://github.com/Mexxy-lab/Pumej_amazon-clone-app.git)
+[(3) Containerization of a python web application using Docker containerization (Cabana website)](https://github.com/Mexxy-lab/Cabana-website-project.git)
 
 <img src="images/project-architecture.png?raw=true" alt=""/>
 
-**Tools used:** Javascript, Jenkins, ArgoCD, Gitops, Docker, Containerization, Github, AWS. Digital Ocean, Terraform.
+**Tools used:** Python, Jenkins, Gitops, Docker Desktop, Docker Containerization, Github, Dockerhub repository, K8s, ArgoCD.
 
-**Project Objective / Keys steps:** To automate the deployment of a sample amazon website application written in Javascript using GitOps-ArgoCD and CD tool jenkins to Digital Ocean kubernetes cluster.
+**Project Objective / Keys steps:** To containerize a website application written in python using Docker and CD tool jenkins to push image to DH repo.
 
-- Provisioned Kubernetes cluster using Digital Ocean as cloud provider. Deployed ArgoCD to the cluster.(You can do this via CLI / UI / Terraform).
-- Created Docker file & jenkins pipeline job to automate the build process. The pipeline triggers a second job which updates the repository for ArgoCD deployment.
-- Pushed imaged to docker hub using the jenkins pipeline job. Deployed the application using Argocd.
-- Added Ingress (Ingress.yml) rules using nginx to the deployment namespace to control traffic from outside world using Ingress controller.
-- Added Cert manager/jet-stack (issuer.yml) to the deployment to make the website look secured respectively. Cluster issuer type was used.
-- Added monitoring tools Prometheus and Grafana via helm charts for monitoring purposes.
+- Created Docker file & jenkins pipeline job to automate the build process. The pipeline triggers a second job which updates the repository for ArgoCD deployment. docker build -t mycabanapp22:v1.0.0 .
+- Created a MySQL container and connected this to our running container to access DB. docker run -d --name mysql-container -e MYSQL_ROOT_PASSWORD=mekulus -p 3306:3306 mysql:latest
+- Pushed imaged to docker hub using the jenkins pipeline job. 
+- Created a docker container using docker run command. docker run -d -p 8339:3000 mycabanapp22:v1.0.0
 
-**Output result:** Webapp deployed and running with domain name amazon.pumej.com [**Build time 184** minutes](https://github.com/Mexxy-lab/Pumej_amazon-clone-app.git).
+**Output result:** Webapp deployed and running on localhost port 3000 [**Build time 2mins 7secs** minutes](https://github.com/Mexxy-lab/Cabana-website-project.git).
 
-<img src="images/amazon-app.png?raw=true"/>
+<img src="images/webpage-localhost.png?raw=true"/>
 
-- Picture showing deployed pods running in ArgoCD
+- Picture showing Container running on localhost:3000
 
-<img src="images/Pod.png?raw=true"/>
+<img src="images/containerlogs.png?raw=true"/>
 
-- Picture showing monitoring tool grafana
+- Picture showing Container logs for MySQL container
 
-<img src="images/cluster-monitoring.png?raw=true"/>
+<img src="images/mysqlcontainerlogs.png?raw=true"/>
 
 ***
