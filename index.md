@@ -115,7 +115,7 @@ Here are some of my best Devops Projects. I have explored various devops tools f
 - SSH into the server using its public IP address, do this from the .ssh directory on your local PC.
 - Installed all dependencies need for jenkins to run, then added a jenkins user to sudo group.
 - By default, username is admin and jenkins runs on port 8080, use sudo cat /var/lib/jenkins/secrets/initialAdminPassword to get initial password 
-- Added an nginx reverse proxy server and installed certbot package. Certbot provides a variety of ways to obtain SSL certificates through plugins.
+- Added a nginx reverse proxy server and installed certbot package. Certbot provides a variety of ways to obtain SSL certificates through plugins.
 
 **Output result:** Jenkins installed and running with customized domain name jenkinsweb.pumej.com & jenkins.pumej.com. [**Run time 3mins 8secs** minutes](https://github.com/Mexxy-lab/pumej_jenkins-project.git).
 
@@ -136,3 +136,39 @@ Here are some of my best Devops Projects. I have explored various devops tools f
 <img src="images/plugins.png?raw=true"/>
 
 ***
+
+[(5) Creating a Terraform Module for EKS Cluster and publishing to Github project](https://github.com/Mexxy-lab/terraform-aws-pumej_modules-eks.git)
+
+<img src="images/jenkins.png?raw=true" alt=""/>
+
+**Tools used:** Terraform, Jenkins, Gitops, bash, Github, Digital Ocean, Ubuntu terminal, Linux.
+
+**Project Objective / Keys steps:** Setting up Jenkins on an Ubuntu server using Terraform to provision resource in Digital Ocean cloud platform.
+
+- Created the provider main and variable .tf files for terraform deployment, also created the terraform.tfvars file.
+- main.tf file: contains the resources we are asking to be deployed to cloud. In our case would be a droplet server.
+- variables.tf file: Has all variables assigned in your main file.
+- terraform.tfvars file: this files holds the config details of the server we are looking to create for a specific environment. Enables you to provision your resources to different environment or namespace.
+- Ran terraform commands terraform fmt, init, validate, plan and apply. To spin up the resource. In our case a single droplet.
+- SSH into the server using its public IP address, do this from the .ssh directory on your local PC.
+- Installed all dependencies need for jenkins to run, then added a jenkins user to sudo group.
+- By default, username is admin and jenkins runs on port 8080, use sudo cat /var/lib/jenkins/secrets/initialAdminPassword to get initial password
+- Added a nginx reverse proxy server and installed certbot package. Certbot provides a variety of ways to obtain SSL certificates through plugins.
+
+**Output result:** Jenkins installed and running with customized domain name jenkinsweb.pumej.com & jenkins.pumej.com. [**Run time 3mins 8secs** minutes](https://github.com/Mexxy-lab/pumej_jenkins-project.git).
+
+<img src="images/jenkins.png?raw=true"/>
+
+- Picture showing deployed website running with server IP address not secured
+
+<img src="images/jenkinsunsecure.png?raw=true"/>
+
+- Picture showing terraform apply / plan command completed successfully provisioning droplet with IP 159.223.180.236
+
+<img src="images/terraformapply.png?raw=true"/>
+
+<img src="images/terraformplan.png?raw=true"/>
+
+- Picture showing plugins installation on the deployed jenkins server
+
+<img src="images/plugins.png?raw=true"/>
