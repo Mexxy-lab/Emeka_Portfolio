@@ -137,38 +137,62 @@ Here are some of my best Devops Projects. I have explored various devops tools f
 
 ***
 
-[(5) Creating a Terraform Module for EKS Cluster and publishing to Github project](https://github.com/Mexxy-lab/terraform-aws-pumej_modules-eks.git)
+[(5) Creating a Terraform Module for EKS Cluster and publishing to Github ](https://github.com/Mexxy-lab/terraform-aws-pumej_modules-eks.git)
 
 <img src="images/jenkins.png?raw=true" alt=""/>
 
-**Tools used:** Terraform, Jenkins, Gitops, bash, Github, Digital Ocean, Ubuntu terminal, Linux.
+**Tools used:** Terraform, Gitops, bash, Github, AWS, Linux/Ubuntu terminal.
 
-**Project Objective / Keys steps:** Setting up Jenkins on an Ubuntu server using Terraform to provision resource in Digital Ocean cloud platform.
+**Project Objective / Keys steps:** To create a Module for EKS Cluster provisioning using terraform and publishing it to Github project. Modules in terraform is like a container which enables you to reuse your code in different environments.
 
-- Created the provider main and variable .tf files for terraform deployment, also created the terraform.tfvars file.
-- main.tf file: contains the resources we are asking to be deployed to cloud. In our case would be a droplet server.
-- variables.tf file: Has all variables assigned in your main file.
-- terraform.tfvars file: this files holds the config details of the server we are looking to create for a specific environment. Enables you to provision your resources to different environment or namespace.
-- Ran terraform commands terraform fmt, init, validate, plan and apply. To spin up the resource. In our case a single droplet.
-- SSH into the server using its public IP address, do this from the .ssh directory on your local PC.
-- Installed all dependencies need for jenkins to run, then added a jenkins user to sudo group.
-- By default, username is admin and jenkins runs on port 8080, use sudo cat /var/lib/jenkins/secrets/initialAdminPassword to get initial password
-- Added a nginx reverse proxy server and installed certbot package. Certbot provides a variety of ways to obtain SSL certificates through plugins.
+- Created the provider, main, output and variable .tf files for terraform deployment in sub-directory called modules.
+- main.tf file: contains the resources we are asking to be deployed to cloud. In this case would be an EKS cluster.
+- cd out of working directory and create a main.tf calling your modules folder. Specify the path to your modules subdirectory. 
+- Run terraform commands terraform fmt, init, validate, plan to ensure no errors in same directory. 
+- Created a new directory pumej-modules and copied all files from the subdirectory to new directory, added a README.md file also and pushed the to remote repository.
+- Also added the final module to terraform cloud platform. You would see it listed as "pumej_modules-eks".
 
-**Output result:** Jenkins installed and running with customized domain name jenkinsweb.pumej.com & jenkins.pumej.com. [**Run time 3mins 8secs** minutes](https://github.com/Mexxy-lab/pumej_jenkins-project.git).
+**Output result:** Module created and pushed to GitHub and also published on terraform cloud platform as pumej_modules-eks. [**Active**](https://github.com/Mexxy-lab/terraform-aws-pumej_modules-eks.git).
 
-<img src="images/jenkins.png?raw=true"/>
+<img src="images/module.png?raw=true"/>
 
-- Picture showing deployed website running with server IP address not secured
+- Picture showing module pushed to Github
 
-<img src="images/jenkinsunsecure.png?raw=true"/>
+<img src="images/module.png?raw=true"/>
 
-- Picture showing terraform apply / plan command completed successfully provisioning droplet with IP 159.223.180.236
+- Picture showing module listed on terraform page
 
-<img src="images/terraformapply.png?raw=true"/>
+<img src="images/eksmodule.png?raw=true"/>
 
-<img src="images/terraformplan.png?raw=true"/>
+- Picture showing created module published on terraform cloud platform 
 
-- Picture showing plugins installation on the deployed jenkins server
+<img src="images/module-onterraformcld.png?raw=true"/>
 
-<img src="images/plugins.png?raw=true"/>
+***
+
+[(3) Containerization of a python web application using Docker containerization (Cabana website)](https://github.com/Mexxy-lab/Cabana-website-project.git)
+
+<img src="images/project-architecture.png?raw=true" alt=""/>
+
+**Tools used:** Python, Jenkins, Gitops, Docker Desktop, Docker Containerization, Github, Dockerhub repository, K8s, ArgoCD.
+
+**Project Objective / Keys steps:** To containerize a website application written in python using Docker and CD tool jenkins to push image to DH repo.
+
+- Created Docker file & jenkins pipeline job to automate the build process. The pipeline triggers a second job which updates the repository for ArgoCD deployment. docker build -t mycabanapp22:v1.0.0 .
+- Created a MySQL container and connected this to our running container to access DB. docker run -d --name mysql-container -e MYSQL_ROOT_PASSWORD=mekulus -p 3306:3306 mysql:latest
+- Pushed imaged to docker hub using the jenkins pipeline job.
+- Created a docker container using docker run command. docker run -d -p 8339:3000 mycabanapp22:v1.0.0
+
+**Output result:** Webapp deployed and running on localhost port 3000 [**Build time 2mins 7secs** minutes](https://github.com/Mexxy-lab/Cabana-website-project.git).
+
+<img src="images/webpage-localhost.png?raw=true"/>
+
+- Picture showing Container running on localhost:3000
+
+<img src="images/containerlogs.png?raw=true"/>
+
+- Picture showing Container logs for MySQL container
+
+<img src="images/mysqlcontainerlogs.png?raw=true"/>
+
+***
