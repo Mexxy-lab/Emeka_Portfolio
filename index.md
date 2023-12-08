@@ -172,7 +172,7 @@ Here are some of my best Devops Projects. I have explored various devops tools f
 
 [(6) Real Time Blue Green Deployment with argocd and argo-rollout using Jenkins](https://github.com/Mexxy-lab/pumej-argo-rollout_nodejs.git)
 
-<img src="images/bluegreen.png?raw=true" alt=""/>
+<img src="images/argocdarchitecture.png?raw=true" alt=""/>
 
 **Tools used:** Terraform, Jenkins, Gitops, Docker, Docker Containerization, Github, Dockerhub repository, K8s, ArgoCD, Argocd rollout, argocd cli.
 
@@ -224,5 +224,53 @@ Here are some of my best Devops Projects. I have explored various devops tools f
 - Picture showing webpage running version 2 of deployed application
 
 <img src="images/webpage-v2.png?raw=true"/>
+
+***
+
+[(7) Deploying springboot javatype petclinic app using a remote Dital Ocean server/droplet using Terraform](https://github.com/Mexxy-lab/springboot-app_project.git)
+
+<img src="images/springbook-archit.png?raw=true" alt=""/>
+
+**Tools used:** Terraform, java, maven, Gitops, Docker, Docker Containerization, Github, Dockerhub repository, K8s cluster DO, ArgoCD, argocd cli.
+
+**Project Objective / Keys steps:** To deploying the springbook petclinic application using a remote server provisioned via terraform from local host. 
+
+- Created terraform files for provisioning of DO droplet in cloud Digital Ocean (main.tf, providers.tf, variables.tf and terraform.tfvars files).
+- Connected to remote server using ssh protocol. You can also connect via DO console. Created a user and assigned user to sudo group. 
+- Created a shell script -petclinic.sh file to install dependents (Java 17, Maven, Docker, Python VENV, PIP, terraform, kubectl, and Doctl), ran script using sh command.
+- Authenticated CLI with docker and also added user to docker group. Git cloned repository with source codes and tested app locally using mvn/java commands. 
+- Created docker file for building the image and ran build successfully as pumejlab/petclinic:latest and pushed image to dockerhub using docker build/push commands. 
+- Created terraform file main.tf to provision a DO k8s cluster, and updated kubeconfig file. 
+- Created the deployment.yml manifest file to deploy application to cluster with target port set to 8080. 
+- Deployed application to provisioned cluster using kubectl apply -f command.
+
+**Output result:** Webapp deployed successfully running on localhost [**Build time 2mins 7secs** minutes](https://github.com/Mexxy-lab/springboot-app_project.git).
+
+- Picture showing app test/build successful on local premise 
+
+<img src="images/apptestlocally.png?raw=true"/>
+<img src="images/apptest.png?raw=true"/>
+<img src="images/apptest2.png?raw=true"/>
+
+- Picture showing springbook petclinic application on localhost 8085
+
+<img src="images/webpagelocal.png?raw=true"/>
+
+- Picture showing docker build was successful
+
+<img src="images/buildimage.png?raw=true"/>
+
+- Picture showing image successfully pushed to dockerhub repository
+
+<img src="images/dockerpush.png?raw=true"/>
+<img src="images/imageondockerhub.png?raw=true"/>
+
+- Picture showing pods running on the K8s cluster provisioned on minikube
+
+<img src="images/docluster.png?raw=true"/>
+
+- Picture showing rollout dashboard after upgrade, running revision 1/2 and argocd deployed pods all running
+
+<img src="images/webapponminkube.png?raw=true"/>
 
 ***
