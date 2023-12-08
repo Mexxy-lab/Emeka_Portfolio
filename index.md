@@ -187,7 +187,7 @@ Here are some of my best Devops Projects. I have explored various devops tools f
 - Applied changes to our application and pushed to GitHub repository, argocd picked up changes automatically. 
 - You can now access rollout dashboard to promote the new deployment and see how it migrates it. Refer to below pictures. 
 
-**Output result:** Webapp deployed and running on localhost port 3000 [**Build time 2mins 7secs** minutes](https://github.com/Mexxy-lab/rollout-manifests.git).
+**Output result:** Webapp deployed using ArgoCD and running on localhost [**Build time 2mins 7secs** minutes](https://github.com/Mexxy-lab/rollout-manifests.git).
 
 - Picture showing deployed pods running in argocd
 
