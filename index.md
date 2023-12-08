@@ -193,6 +193,10 @@ Here are some of my best Devops Projects. I have explored various devops tools f
 
 <img src="images/podsdeployed.png?raw=true"/>
 
+- Picture showing CI/CD pipeline build of deployed application
+
+<img src="images/pipelinebuild.png?raw=true"/>
+
 - Picture showing webpage running version 1
 
 <img src="images/appversion1.png?raw=true"/>
