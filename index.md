@@ -170,29 +170,55 @@ Here are some of my best Devops Projects. I have explored various devops tools f
 
 ***
 
-[(3) Containerization of a python web application using Docker containerization (Cabana website)](https://github.com/Mexxy-lab/Cabana-website-project.git)
+[(6) Real Time Blue Green Deployment with argocd and argo-rollout using Jenkins](https://github.com/Mexxy-lab/pumej-argo-rollout_nodejs.git)
 
-<img src="images/project-architecture.png?raw=true" alt=""/>
+<img src="images/bluegreen.png?raw=true" alt=""/>
 
-**Tools used:** Python, Jenkins, Gitops, Docker Desktop, Docker Containerization, Github, Dockerhub repository, K8s, ArgoCD.
+**Tools used:** Terraform, Jenkins, Gitops, Docker, Docker Containerization, Github, Dockerhub repository, K8s, ArgoCD, Argocd rollout, argocd cli.
 
-**Project Objective / Keys steps:** To containerize a website application written in python using Docker and CD tool jenkins to push image to DH repo.
+**Project Objective / Keys steps:** To demonstrate Real time Blue Green Deployment of an application using argocd and argo-rollout using Jenkins. Argo Rollouts is a Kubernetes controller and set of CRDs which provide advanced deployment capabilities such as blue-green, canary, canary analysis, experimentation, and progressive delivery features to Kubernetes.
 
-- Created Docker file & jenkins pipeline job to automate the build process. The pipeline triggers a second job which updates the repository for ArgoCD deployment. docker build -t mycabanapp22:v1.0.0 .
-- Created a MySQL container and connected this to our running container to access DB. docker run -d --name mysql-container -e MYSQL_ROOT_PASSWORD=mekulus -p 3306:3306 mysql:latest
-- Pushed imaged to docker hub using the jenkins pipeline job.
-- Created a docker container using docker run command. docker run -d -p 8339:3000 mycabanapp22:v1.0.0
+- Confirmed source code works locally by running node server.js to run application locally.
+- Created a CI/CD pipeline job to build and push image to dockerhub repository. This was done with Jenkins pipeline job triggering a second manifest.  
+- Set up terraform files to provision k8s cluster in AWS. Ran terraform commands init, validate, plan to confirm code is okay and applied it. 
+- Created a rollout.yml file with strategy type as bluegreen for our progressive deployment. Also set up 2 service.yml files svc-active and svc-preview, both running same version.
+- Deployed the rollout.yml file using ArgoCD to the provisioned cluster.
+- Installed Argo Rollouts controller onto the provisioned Cluster using standard commands for deployment. Confirmed both services running version 1 of our application. 
+- Applied changes to our application and pushed to GitHub repository, argocd picked up changes automatically. 
+- You can now access rollout dashboard to promote the new deployment and see how it migrates it. Refer to below pictures. 
 
-**Output result:** Webapp deployed and running on localhost port 3000 [**Build time 2mins 7secs** minutes](https://github.com/Mexxy-lab/Cabana-website-project.git).
+**Output result:** Webapp deployed and running on localhost port 3000 [**Build time 2mins 7secs** minutes](https://github.com/Mexxy-lab/rollout-manifests.git).
 
-<img src="images/webpage-localhost.png?raw=true"/>
+- Picture showing deployed pods running in argocd
 
-- Picture showing Container running on localhost:3000
+<img src="images/podsdeployed.png?raw=true"/>
 
-<img src="images/containerlogs.png?raw=true"/>
+- Picture showing webpage running version 1
 
-- Picture showing Container logs for MySQL container
+<img src="images/appversion1.png?raw=true"/>
 
-<img src="images/mysqlcontainerlogs.png?raw=true"/>
+- Picture showing services running both svc-active and svc-preview 
+
+<img src="images/svc-preview.png?raw=true"/>
+<img src="images/svc-active.png?raw=true"/>
+
+- Picture showing rollout dashboard prior to upgrade, running revision 1 and argocd deploying the updated app
+
+<img src="images/rollout-dashboard.png?raw=true"/>
+<img src="images/argocd-delpoymentwip.png?raw=true"/>
+
+- Picture showing rollout dashboard after upgrade, running revision 1/2 and argocd deployed pods all running
+
+<img src="images/pod-deployed.png?raw=true"/>
+<img src="images/rollout-completed.png?raw=true"/>
+
+- Picture showing rollout dashboard after upgrade, running revision 1/2 and argocd deployed pods all running version 2
+
+<img src="images/completeddeployment.png?raw=true"/>
+<img src="images/rolloutdashboard-done.png?raw=true"/>
+
+- Picture showing webpage running version 2 of deployed application
+
+<img src="images/webpage-v2.png?raw=true"/>
 
 ***
