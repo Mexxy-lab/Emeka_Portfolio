@@ -233,7 +233,7 @@ Here are some of my best Devops Projects. I have explored various devops tools f
 
 **Tools used:** Terraform, java, maven, Gitops, Docker, Docker Containerization, Github, Dockerhub repository, K8s cluster DO, ArgoCD, argocd cli.
 
-**Project Objective / Keys steps:** To deploying the springbook petclinic application using a remote server provisioned via terraform from local host. 
+**Project Objective / Keys steps:** To deploy the springbook petclinic application using a remote server provisioned via terraform from local host. 
 
 - Created terraform files for provisioning of DO droplet in cloud Digital Ocean (main.tf, providers.tf, variables.tf and terraform.tfvars files).
 - Connected to remote server using ssh protocol. You can also connect via DO console. Created a user and assigned user to sudo group. 
